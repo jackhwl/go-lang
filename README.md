@@ -24,4 +24,4 @@
       - int
       - float64
   - Functions and Return Types
-  
+  - Slices and For Loops

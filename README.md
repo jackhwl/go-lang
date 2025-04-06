@@ -23,3 +23,5 @@
       - string
       - int
       - float64
+  - Functions and Return Types
+  

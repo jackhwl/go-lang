@@ -25,3 +25,5 @@
       - float64
   - Functions and Return Types
   - Slices and For Loops
+  - OO Approach vs Go Approach
+  

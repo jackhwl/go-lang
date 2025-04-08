@@ -29,3 +29,4 @@
   - Custom Type Declarations
   - Receiver Functions
   - Creating a New Deck
+  - Slice Range Syntax

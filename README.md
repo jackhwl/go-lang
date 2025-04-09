@@ -31,4 +31,4 @@
   - Creating a New Deck
   - Slice Range Syntax
   - Multiple Return Values
-  
+  - Byte Slices

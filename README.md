@@ -30,3 +30,5 @@
   - Receiver Functions
   - Creating a New Deck
   - Slice Range Syntax
+  - Multiple Return Values
+  

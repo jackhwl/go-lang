@@ -32,3 +32,4 @@
   - Slice Range Syntax
   - Multiple Return Values
   - Byte Slices
+  - Deck to String

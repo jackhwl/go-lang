@@ -40,3 +40,4 @@
   - Shuffling a Deck
   - Random Number Generation
   - Testing With Go
+  - Writing Userful Tests

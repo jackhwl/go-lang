@@ -37,3 +37,4 @@
   - Saving Data to the Hard Drive
   - Reading From the Hard Drive
   - Error Handling
+  - Shuffling a Deck

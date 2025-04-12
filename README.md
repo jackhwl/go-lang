@@ -45,3 +45,4 @@
   - Testing File IO
   - Proect Review
   - Assignment: Even or Odd?
+  - Even or Odd Solution

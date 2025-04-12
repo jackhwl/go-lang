@@ -9,7 +9,7 @@ func main() {
 		if i%2 == 0 {
 			fmt.Printf("%v is even\n", i)
 		} else {
-			fmt.Printf("%v is odd\n", i)
+			fmt.Println(i, "is odd")
 		}
 	}
 }

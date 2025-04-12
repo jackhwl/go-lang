@@ -44,3 +44,4 @@
   - Asserting Elements in a Slice
   - Testing File IO
   - Proect Review
+  - Assignment: Even or Odd?

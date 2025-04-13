@@ -51,3 +51,4 @@
   - Defining Structs
   - Declaring Structs
   - Updating Struct Values
+  - Embedding Structs

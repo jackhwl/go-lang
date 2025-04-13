@@ -46,3 +46,5 @@
   - Proect Review
   - Assignment: Even or Odd?
   - Even or Odd Solution
+## Section 4: Organizing Dta With Structs
+  - Structs in Go

@@ -50,3 +50,4 @@
   - Structs in Go
   - Defining Structs
   - Declaring Structs
+  - Updating Struct Values

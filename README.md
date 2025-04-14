@@ -52,3 +52,5 @@
   - Declaring Structs
   - Updating Struct Values
   - Embedding Structs
+  - Structs with Receiver Functions
+  - Pass By Value

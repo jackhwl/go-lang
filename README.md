@@ -55,3 +55,4 @@
   - Structs with Receiver Functions
   - Pass By Value
   - Structs with Points
+  - Pointer Operations

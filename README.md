@@ -56,3 +56,4 @@
   - Pass By Value
   - Structs with Points
   - Pointer Operations
+  - Pointer Shortcut

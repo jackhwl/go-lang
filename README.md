@@ -57,3 +57,4 @@
   - Structs with Points
   - Pointer Operations
   - Pointer Shortcut
+  - Gotchas With Pointers

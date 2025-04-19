@@ -63,3 +63,4 @@
   - What's a Map?
   - Manipulating Maps
   - Iterating Over Maps
+  - Differences Between Mapos and Structs

@@ -59,3 +59,5 @@
   - Pointer Shortcut
   - Gotchas With Pointers
   - Reference vs Value Types
+## Section 5: Maps
+  - What's a Map?

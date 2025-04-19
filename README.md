@@ -61,3 +61,5 @@
   - Reference vs Value Types
 ## Section 5: Maps
   - What's a Map?
+  - Manipulating Maps
+  - Iterating Over Maps

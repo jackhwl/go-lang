@@ -66,3 +66,4 @@
   - Differences Between Mapos and Structs
 ## Section 6: Interfaces
   - Purpose of Interfaces
+  - Problems Without Interfaces

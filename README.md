@@ -64,3 +64,5 @@
   - Manipulating Maps
   - Iterating Over Maps
   - Differences Between Mapos and Structs
+## Section 6: Interfaces
+  - Purpose of Interfaces

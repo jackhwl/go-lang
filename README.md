@@ -67,3 +67,4 @@
 ## Section 6: Interfaces
   - Purpose of Interfaces
   - Problems Without Interfaces
+  - Interfaces in Practice

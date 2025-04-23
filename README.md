@@ -78,3 +78,4 @@
   - More on the Reader Interface
   - Working with the Read Function
   - The Writer Interface
+  - The io.Copy Function

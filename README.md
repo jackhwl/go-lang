@@ -79,3 +79,4 @@
   - Working with the Read Function
   - The Writer Interface
   - The io.Copy Function
+  - The Implementation of io.Copy

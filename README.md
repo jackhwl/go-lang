@@ -81,3 +81,4 @@
   - The io.Copy Function
   - The Implementation of io.Copy
   - A Custom Writer
+  - Assignment: Interfaces

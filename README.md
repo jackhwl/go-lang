@@ -82,3 +82,4 @@
   - The Implementation of io.Copy
   - A Custom Writer
   - Assignment: Interfaces
+  - Interfaces Solution

@@ -84,3 +84,4 @@
   - Assignment: Interfaces
   - Interfaces Solution
   - Assignment: Hard Mode Interfaces
+  - Hard Mode Interfaces Solution

@@ -83,3 +83,4 @@
   - A Custom Writer
   - Assignment: Interfaces
   - Interfaces Solution
+  - Assignment: Hard Mode Interfaces

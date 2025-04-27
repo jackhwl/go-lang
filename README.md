@@ -94,3 +94,4 @@
   - Channels
   - Channel Implementation
   - Blocking Channels
+  - Receiving Messages

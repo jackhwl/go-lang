@@ -87,3 +87,4 @@
   - Hard Mode Interfaces Solution
 ## Section 7: Channels and Go Routines
   - Website Status Checker
+  - Printing Site Status

@@ -92,3 +92,4 @@
   - Go Routines
   - Theory of Go Routines
   - Channels
+  - Channel Implementation

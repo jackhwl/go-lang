@@ -23,18 +23,22 @@ func main() {
 		"https://www.instagram.com",
 		"https://www.pinterest.com",
 	}
+	c := make(chan string)
 
 	for _, link := range links {
-		go checkLink(link)
+		go checkLink(link, c)
 	}
+
+	fmt.Println(<-c)
 }
 
-func checkLink(link string) {
+func checkLink(link string, c chan string) {
 	_, err := http.Get(link)
 	if err != nil {
 		fmt.Println(link, "might be down!")
+		c <- "Might be down!"
 	}
 
 	fmt.Println(link, "is up!")
-
+	c <- "Yes its up!"
 }

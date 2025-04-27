@@ -85,3 +85,5 @@
   - Interfaces Solution
   - Assignment: Hard Mode Interfaces
   - Hard Mode Interfaces Solution
+## Section 7: Channels and Go Routines
+  - Website Status Checker

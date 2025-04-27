@@ -88,3 +88,5 @@
 ## Section 7: Channels and Go Routines
   - Website Status Checker
   - Printing Site Status
+  - Serial Link Checking
+  - Go Routines

@@ -12,6 +12,16 @@ func main() {
 		"https://www.twitter.com",
 		"https://www.linkedin.com",
 		"https://www.github.com",
+		"https://www.reddit.com",
+		"https://www.stackoverflow.com",
+		"https://www.quora.com",
+		"https://www.medium.com",
+		"https://www.wikipedia.org",
+		"https://www.amazon.com",
+		"https://www.netflix.com",
+		"https://www.youtube.com",
+		"https://www.instagram.com",
+		"https://www.pinterest.com",
 	}
 
 	for _, link := range links {

@@ -93,3 +93,4 @@
   - Theory of Go Routines
   - Channels
   - Channel Implementation
+  - Blocking Channels

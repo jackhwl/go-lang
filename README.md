@@ -91,3 +91,4 @@
   - Serial Link Checking
   - Go Routines
   - Theory of Go Routines
+  - Channels

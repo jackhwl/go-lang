@@ -96,3 +96,4 @@
   - Blocking Channels
   - Receiving Messages
   - Repeating Routines
+  - Alternative Loop Syntax

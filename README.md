@@ -98,3 +98,4 @@
   - Repeating Routines
   - Alternative Loop Syntax
   - Sleeping a Routine
+  - Function Literals

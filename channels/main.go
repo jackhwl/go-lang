@@ -12,17 +12,6 @@ func main() {
 		"https://www.facebook.com",
 		"https://www.twitter.com",
 		"https://www.linkedin.com",
-		"https://www.github.com",
-		"https://www.reddit.com",
-		"https://www.stackoverflow.com",
-		"https://www.quora.com",
-		"https://www.medium.com",
-		"https://www.wikipedia.org",
-		"https://www.amazon.com",
-		"https://www.netflix.com",
-		"https://www.youtube.com",
-		"https://www.instagram.com",
-		"https://www.pinterest.com",
 	}
 	c := make(chan string)
 
@@ -31,10 +20,10 @@ func main() {
 	}
 
 	for l := range c {
-		go func() {
+		go func(link string) {
 			time.Sleep(5 * time.Second)
-			checkLink(l, c)
-		}()
+			checkLink(link, c)
+		}(l)
 	}
 }
 

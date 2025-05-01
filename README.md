@@ -99,3 +99,4 @@
   - Alternative Loop Syntax
   - Sleeping a Routine
   - Function Literals
+  - Channels Gotcha!

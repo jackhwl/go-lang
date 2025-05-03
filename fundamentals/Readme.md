@@ -12,3 +12,5 @@
   - Using Numeric Types: int, uint, float32, float64, complex64, complex128
   - Using Booleans Types
   - Using Error Types
+  - Declaring Variables
+  - Working with Constants

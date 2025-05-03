@@ -15,4 +15,5 @@
   - Declaring Variables
   - Working with Constants
   - Demo: Using Variables and Simple Types
-  
+  - Differentiating Pointers and Values
+

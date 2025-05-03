@@ -9,5 +9,5 @@
 ## Variables and Simple Data Types
   - The Simple Data Types: string, number, boolean, error
   - Using String Types: "" interpreted string, `` raw string
-  
+  - Using Numeric Types: int, uint, float32, float64, complex64, complex128
    

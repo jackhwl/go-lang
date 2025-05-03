@@ -14,3 +14,5 @@
   - Using Error Types
   - Declaring Variables
   - Working with Constants
+  - Demo: Using Variables and Simple Types
+  

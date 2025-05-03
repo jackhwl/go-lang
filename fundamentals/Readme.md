@@ -5,3 +5,4 @@
   - Demo: Installing the Go Toolchain
   - Editor Setup
   - Demo: Installing and Setting Up Visual Studio Code
+  - Demo: Hello World

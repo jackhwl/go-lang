@@ -6,3 +6,8 @@
   - Editor Setup
   - Demo: Installing and Setting Up Visual Studio Code
   - Demo: Hello World
+## Variables and Simple Data Types
+  - The Simple Data Types: string, number, boolean, error
+  - Using String Types: "" interpreted string, `` raw string
+  
+   

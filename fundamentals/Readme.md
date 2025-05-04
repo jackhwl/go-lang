@@ -16,4 +16,8 @@
   - Working with Constants
   - Demo: Using Variables and Simple Types
   - Differentiating Pointers and Values
-
+## Aggregate Data Types
+  - The Aggregate Date Types
+  - Using Arrays
+    - var arr [3]int
+    - arrays are copied by value and comparable

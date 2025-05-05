@@ -21,3 +21,6 @@
   - Using Arrays
     - var arr [3]int
     - arrays are copied by value and comparable
+  - Understanding Slices
+    - reference type and not comparable
+    - append, slices.Delete, slices.Clone

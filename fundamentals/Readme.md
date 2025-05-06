@@ -24,3 +24,4 @@
   - Understanding Slices
     - reference type and not comparable
     - append, slices.Delete, slices.Clone
+  - Demo: Using Slices

@@ -30,3 +30,4 @@
   - Demo: Using Maps
   - Understanding Structs
     - value type and comparable
+  - Demo: Using Structs

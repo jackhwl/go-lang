@@ -28,3 +28,5 @@
   - Understanding Maps
     - reference type and not comparable
   - Demo: Using Maps
+  - Understanding Structs
+    - value type and comparable

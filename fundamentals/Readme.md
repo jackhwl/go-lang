@@ -25,3 +25,5 @@
     - reference type and not comparable
     - append, slices.Delete, slices.Clone
   - Demo: Using Slices
+  - Understanding Maps
+    - reference type and not comparable

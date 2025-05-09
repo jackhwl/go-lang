@@ -25,6 +25,10 @@ func main() {
 		{"Smith, John", 92},
 		{"Jones, Mary", 78},
 	}
+
+	fmt.Println("Selectt score to print(1 - 3):")
+	var option string
+	fmt.Scanln(&option)
 	// fmt.Println("Student scores")
 	// fmt.Println(strings.Repeat("-", 14))
 	// for _, s := range scores {
@@ -38,8 +42,19 @@ func main() {
 
 	fmt.Println("Student scores")
 	fmt.Println(strings.Repeat("-", 14))
-	fmt.Println(scores[0].name, ":", scores[0].score)
-	fmt.Println(scores[1].name, ":", scores[1].score)
-	fmt.Println(scores[2].name, ":", scores[2].score)
+	var index int
+	if option == "1" {
+		index = 0
+	} else if option == "2" {
+		index = 1
+	} else if option == "3" {
+		index = 2
+	} else {
+		fmt.Println("Invalid option, defaulting to 1")
+		index = 0
+	}
+	fmt.Println(scores[index].name, ":", scores[index].score)
+	// fmt.Println(scores[1].name, ":", scores[1].score)
+	// fmt.Println(scores[2].name, ":", scores[2].score)
 
 }

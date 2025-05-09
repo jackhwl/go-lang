@@ -36,4 +36,6 @@
   - Using If Statements
   - Demo: If Statements
   - Using Switches
-  - Demo: Switch Statements
+  - Demo: Switch Statementsscenes
+## Control Flow: Loops
+  - Understanding Loops

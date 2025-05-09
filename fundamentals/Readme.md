@@ -40,4 +40,6 @@
 ## Control Flow: Loops
   - Understanding Loops
   - The Primary Looping Constructs
-  
+  - Demo: Infinite Loops
+  - Demo: Loop Till Condition
+  - Understanding Collection-based Loops

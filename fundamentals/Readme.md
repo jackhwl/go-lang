@@ -36,3 +36,4 @@
   - Using If Statements
   - Demo: If Statements
   - Using Switches
+  - Demo: Switch Statements

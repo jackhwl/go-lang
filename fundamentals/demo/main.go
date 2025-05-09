@@ -43,13 +43,24 @@ func main() {
 	fmt.Println("Student scores")
 	fmt.Println(strings.Repeat("-", 14))
 	var index int
-	if option == "1" {
+	// if option == "1" {
+	// 	index = 0
+	// } else if option == "2" {
+	// 	index = 1
+	// } else if option == "3" {
+	// 	index = 2
+	// } else {
+	// 	fmt.Println("Invalid option, defaulting to 1")
+	// 	index = 0
+	// }
+	switch option {
+	case "1":
 		index = 0
-	} else if option == "2" {
+	case "2":
 		index = 1
-	} else if option == "3" {
+	case "3":
 		index = 2
-	} else {
+	default:
 		fmt.Println("Invalid option, defaulting to 1")
 		index = 0
 	}

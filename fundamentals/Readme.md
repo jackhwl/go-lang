@@ -45,4 +45,6 @@
   - Understanding Collection-based Loops
   - Demo: Collection-based Loops
 ## Functions
-  - Overview of Functions 
+  - Overview of Functions
+  - Understanding Go's Function Signature
+  - Using Parameters and Arugments  

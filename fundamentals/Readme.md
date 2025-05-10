@@ -44,3 +44,5 @@
   - Demo: Loop Till Condition
   - Understanding Collection-based Loops
   - Demo: Collection-based Loops
+## Functions
+  - Overview of Functions 

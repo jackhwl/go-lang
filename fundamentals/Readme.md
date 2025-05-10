@@ -49,3 +49,5 @@
   - Understanding Go's Function Signature
   - Using Parameters and Arugments
   - Understanding Variadic Parameters
+  - Returning Values from Functions
+    - use pointers to share memory, otherwise use values

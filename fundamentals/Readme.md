@@ -47,4 +47,5 @@
 ## Functions
   - Overview of Functions
   - Understanding Go's Function Signature
-  - Using Parameters and Arugments  
+  - Using Parameters and Arugments
+  - Understanding Variadic Parameters

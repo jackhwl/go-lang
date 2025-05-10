@@ -51,5 +51,6 @@
   - Understanding Variadic Parameters
   - Returning Values from Functions
     - use pointers to share memory, otherwise use values
-  - s
+  - Differentiating Values and Pointers as Parameters
+  - Demo: Using Functions to Improve Code Struture
    

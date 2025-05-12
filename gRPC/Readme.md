@@ -7,3 +7,4 @@
 ## Section 3: Web API
   - Web APIs
   - SOAP
+  - Other Web API types

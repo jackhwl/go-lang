@@ -8,3 +8,5 @@
   - Web APIs
   - SOAP
   - Other Web API types
+## Section 4: REST API
+  - What is REST?

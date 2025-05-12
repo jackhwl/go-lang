@@ -14,3 +14,4 @@
   - REST API Response
   - HTTP Verbs
   - URL Structure
+  - Response Codes

@@ -10,3 +10,6 @@
   - Other Web API types
 ## Section 4: REST API
   - What is REST?
+  - REST API Request
+  - REST API Response
+  - HTTP Verbs

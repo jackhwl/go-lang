@@ -13,3 +13,4 @@
   - REST API Request
   - REST API Response
   - HTTP Verbs
+  - URL Structure

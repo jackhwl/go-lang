@@ -16,3 +16,4 @@
   - URL Structure
   - Response Codes
   - Versioning
+  - HATEOAS

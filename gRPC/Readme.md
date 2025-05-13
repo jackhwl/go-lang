@@ -17,3 +17,6 @@
   - Response Codes
   - Versioning
   - HATEOAS
+  - DEMO - REST API
+## Section 5: GraphQL
+  - Problems with REST

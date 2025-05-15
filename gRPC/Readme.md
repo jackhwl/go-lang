@@ -22,3 +22,4 @@
   - Problems with REST
   - History of GraphQL
   - GraphQL Basics
+  - Stemps in Working with GraphQL

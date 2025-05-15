@@ -33,3 +33,4 @@
   - RPC
   - Communication Styles
   - ProtoBuf
+  - Error Handling

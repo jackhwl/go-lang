@@ -23,3 +23,4 @@
   - History of GraphQL
   - GraphQL Basics
   - Stemps in Working with GraphQL
+  - Role of the Schema

@@ -29,3 +29,5 @@
 ## gRPC
   - Introduction
   - History of gRPC
+  - gRPC Basics
+  - RPC

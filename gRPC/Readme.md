@@ -25,3 +25,4 @@
   - Stemps in Working with GraphQL
   - Role of the Schema
   - GraphQL Server Roles
+  - DEMO - GraphQL

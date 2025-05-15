@@ -20,4 +20,5 @@
   - DEMO - REST API
 ## Section 5: GraphQL
   - Problems with REST
-  - History of GraphQL 
+  - History of GraphQL
+  - GraphQL Basics

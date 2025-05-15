@@ -31,3 +31,4 @@
   - History of gRPC
   - gRPC Basics
   - RPC
+  - Communication Styles

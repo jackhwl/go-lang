@@ -39,3 +39,5 @@
 ## Comparing Web APIs
   - Introduction
   - Pros and Cons
+  - Flowchart for Selecting Web API
+  - ![Flowchart](api_flow.png)

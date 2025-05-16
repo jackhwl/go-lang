@@ -36,3 +36,6 @@
   - Error Handling
   - Advanced Topics
   - DEMO - gRPC
+## Comparing Web APIs
+  - Introduction
+  - Pros and Cons

@@ -7,3 +7,5 @@
   - Installing Go
   - Installing Visual Studio Code
   - Installing Docker
+## Gettiong Started with React
+  - How React works

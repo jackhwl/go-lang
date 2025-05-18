@@ -11,3 +11,4 @@
   - How React works
   - Hello world with React using Classes
   - Hello world with React using functional
+  - Styling Components

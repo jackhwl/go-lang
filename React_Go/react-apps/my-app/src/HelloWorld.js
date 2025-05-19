@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import './HelloWorld.css';
 
-function HelloWorld() {
+function HelloWorld(props) {
     return (
         <>
             <hr />
-            <h1 className='h1-green'>Hello, World!</h1>
+            <h1 className='h1-green'>{props.msg}</h1>
         </>
     );
 }

@@ -13,4 +13,4 @@
   - Hello world with React using functional
   - Styling Components
   - Using Bootstrap CSS
-  
+  - Using props: passing data to components

@@ -4,6 +4,10 @@ import './App.css';
 function HelloWorld(props) {
     const [isTrue, setIsTrue] = useState(true);
     const [crowd, setCrowd] = useState([]);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [dob, setDob] = useState('');
+
 
     const toggleTrue = () => {
         if (isTrue) {
@@ -40,6 +44,25 @@ function HelloWorld(props) {
             { isTrue ? <p> is true </p> : <p> is false </p> }
             <a href="#!" className="btn btn-outline-secondary" onClick={toggleTrue}>Toggle isTrue</a>
             <hr />
+            <form autoComplete='off'>
+                <div className="mb-3">
+                    <label htmlFor="firstName" className="form-label">First Name</label>
+                    <input type="text" className="form-control" name='firstName' id="firstName" onChange={event => setFirstName(event.target.value)} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="lastName" className="form-label">Last Name</label>
+                    <input type="text" className="form-control" name="lastName" id="lastName"  onChange={event => setLastName(event.target.value)} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="dob" className="form-label">Date of Birth</label>
+                    <input type="date" className="form-control" name="dob" id="dob" onChange={event => setDob(event.target.value)} />
+                </div>
+            </form>
+            <div>
+                First Name: {firstName} <br />
+                Last Name: {lastName} <br />
+                Date of Birth: {dob} <br />
+            </div>
             <h2>People</h2>
             <ul className="list-group">
                 {crowd.map((person) => (

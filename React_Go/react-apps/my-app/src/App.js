@@ -30,6 +30,20 @@ function HelloWorld(props) {
         setCrowd(people);
     }, []);
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('First Name: ', firstName);
+        console.log('Last Name: ', lastName);
+        console.log('Date of Birth: ', dob);
+
+        // let newPerson = {
+        //     id: crowd.length + 1,
+        //     firstName: firstName,
+        //     lastName: lastName,
+        //     dob: dob
+        // }
+        // setCrowd([...crowd, newPerson]);
+    }
     return (
         <>
             <hr />
@@ -45,10 +59,11 @@ function HelloWorld(props) {
             { isTrue ? <p> is true </p> : <p> is false </p> }
             <a href="#!" className="btn btn-outline-secondary" onClick={toggleTrue}>Toggle isTrue</a>
             <hr />
-            <form autoComplete='off'>
+            <form autoComplete='off' onSubmit={handleSubmit}>
                 <Input title="First Name" type="text" className="form-control" name='firstName' autoComplete='firstName-new' id="firstName" onChange={event => setFirstName(event.target.value)}/>
                 <Input title="Last Name" type="text" className="form-control" name='lastName' autoComplete='lastName-new' id="lastName" onChange={event => setLastName(event.target.value)}/>
                 <Input title="Date of Birth" type="date" className="form-control" name='dob' autoComplete='dob-new' id="dob" onChange={event => setDob(event.target.value)}/>
+                <input type="submit" className="btn btn-primary" value="Submit" ></input>
             </form>
             <div>
                 First Name: {firstName} <br />

@@ -20,3 +20,4 @@
   - React and State IV
   - React and State V
   - Intercepting form submissions with onSubmit()
+  - handleSubmit() continued

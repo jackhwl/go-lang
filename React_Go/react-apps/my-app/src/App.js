@@ -32,6 +32,10 @@ function HelloWorld(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        if (lastName !== '') {
+            addPerson(firstName, lastName, dob);
+        }
         console.log('First Name: ', firstName);
         console.log('Last Name: ', lastName);
         console.log('Date of Birth: ', dob);
@@ -43,6 +47,28 @@ function HelloWorld(props) {
         //     dob: dob
         // }
         // setCrowd([...crowd, newPerson]);
+    }
+
+    const addPerson = (newFirst, newLast, newDOB) => {
+        let newPerson = {
+            id: crowd.length + 1,
+            firstName: newFirst,
+            lastName: newLast,
+            dob: newDOB
+        }
+        const newList = crowd.concat(newPerson);
+        const sorted = newList.sort((a, b) => {
+            if (a.lastName < b.lastName) {
+                return -1;
+            } else if (a.lastName > b.lastName) {
+                return 1;
+            }
+            return 0;
+        })
+        setCrowd(sorted);
+        setFirstName('');
+        setLastName('');
+        setDob('');
     }
     return (
         <>

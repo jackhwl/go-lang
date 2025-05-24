@@ -9,9 +9,9 @@ function HelloWorld(props) {
     const [lastName, setLastName] = useState('');
     const [dob, setDob] = useState('');
 
-    const firstNameRef = useRef();
-    const lastNameRef = useRef();
-    const dobRef = useRef();
+    const firstNameRef = useRef(null);
+    const lastNameRef = useRef(null);
+    const dobRef = useRef(null);
 
     const toggleTrue = () => {
         if (isTrue) {

@@ -93,7 +93,7 @@ function HelloWorld(props) {
             <a href="#!" className="btn btn-outline-secondary" onClick={toggleTrue}>Toggle isTrue</a>
             <hr />
             <form autoComplete='off' onSubmit={handleSubmit}>
-                <Input title="First Name" type="text" className="form-control" ref={firstNameRef} name='firstName' autoComplete='firstName-new' id="firstName" onChange={event => setFirstName(event.target.value)}/>
+                <input title="First Name" type="text" className="form-control" ref={firstNameRef} name='firstName' autoComplete='firstName-new' id="firstName" onChange={event => setFirstName(event.target.value)}/>
                 <Input title="Last Name" type="text" className="form-control" ref={lastNameRef} name='lastName' autoComplete='lastName-new' id="lastName" onChange={event => setLastName(event.target.value)}/>
                 <Input title="Date of Birth" type="date" className="form-control" ref={dobRef} name='dob' autoComplete='dob-new' id="dob" onChange={event => setDob(event.target.value)}/>
                 <input type="submit" className="btn btn-primary" value="Submit" ></input>

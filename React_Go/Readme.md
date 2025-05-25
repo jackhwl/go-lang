@@ -23,3 +23,4 @@
   - handleSubmit() continued
   - Ref: using references in React
   - References with components: forwardRef()
+  - Class Lifecycle

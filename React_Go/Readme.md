@@ -27,3 +27,5 @@
 ## Getting started with our main project: Go Watch a Movie
   - Getting started with our project
   - Setting up the application layout
+  - Getting Started with React Router v6
+  

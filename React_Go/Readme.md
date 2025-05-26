@@ -26,3 +26,4 @@
   - Class Lifecycle
 ## Getting started with our main project: Go Watch a Movie
   - Getting started with our project
+  - Setting up the application layout

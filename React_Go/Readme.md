@@ -24,3 +24,5 @@
   - Ref: using references in React
   - References with components: forwardRef()
   - Class Lifecycle
+## Getting started with our main project: Go Watch a Movie
+  - Getting started with our project

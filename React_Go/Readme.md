@@ -28,4 +28,4 @@
   - Getting started with our project
   - Setting up the application layout
   - Getting Started with React Router v6
-  
+  - Configuring React Router

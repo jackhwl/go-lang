@@ -30,3 +30,4 @@
   - Getting Started with React Router v6
   - Configuring React Router
   - Using React Router's Link
+  - Working on the Movies component

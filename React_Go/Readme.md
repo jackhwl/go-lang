@@ -32,3 +32,4 @@
   - Using React Router's Link
   - Working on the Movies component
   - Routing from the Movies component to individual
+  - Displaying an individual movie

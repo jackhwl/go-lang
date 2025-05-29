@@ -35,7 +35,7 @@ const Movies = () => {
 
     return (
         <div>
-            <h2>Movie!</h2>
+            <h2>Movies!</h2>
             <hr />
             <table className='table table-striped table-hover'>
                 <thead>

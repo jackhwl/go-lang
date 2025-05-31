@@ -35,3 +35,4 @@
   - Displaying an individual movie
 ## Setting up User Login
   - Working on the Login button
+  - Creating the login form

@@ -36,3 +36,5 @@
 ## Setting up User Login
   - Working on the Login button
   - Creating the login form
+  - Giving the Login component access to setJWT
+  - Adding error messages and redirects to the Login component

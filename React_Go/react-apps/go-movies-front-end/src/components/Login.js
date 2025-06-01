@@ -1,16 +1,30 @@
 import { useState } from "react";
 import Input from "./form/Input";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const { setJwtToken } = useOutletContext();
+    const { setAlertMessage, setAlertClassName } = useOutletContext();
+
+    const navigate = useNavigate()
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("Login submitted", email, password);
         
-        if (email == "admin@jack.com") {
-            
+        if (email === "admin@jack.com") {
+            setJwtToken("abc");
+            setAlertClassName("d-none");
+            setAlertMessage("");
+            navigate("/");
+        } else {
+            setJwtToken("");
+            setAlertClassName("alert-danger");
+            setAlertMessage("Invalid email or password");
         }
     }
 

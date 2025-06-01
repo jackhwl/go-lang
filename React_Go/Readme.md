@@ -38,3 +38,4 @@
   - Creating the login form
   - Giving the Login component access to setJWT
   - Adding error messages and redirects to the Login component
+  - Logging out

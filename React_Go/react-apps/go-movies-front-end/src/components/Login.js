@@ -22,7 +22,6 @@ const Login = () => {
             setAlertMessage("");
             navigate("/");
         } else {
-            setJwtToken("");
             setAlertClassName("alert-danger");
             setAlertMessage("Invalid email or password");
         }

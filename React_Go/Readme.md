@@ -39,3 +39,5 @@
   - Giving the Login component access to setJWT
   - Adding error messages and redirects to the Login component
   - Logging out
+## Getting started with our Back End API
+  - Starting the back end API

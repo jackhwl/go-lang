@@ -42,3 +42,5 @@
 ## Getting started with our Back End API
   - Starting the back end API
   - Adding handlers and routes to our API
+  - Installing a routing package
+  - Adding a route to our handlers

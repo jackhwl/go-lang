@@ -41,3 +41,4 @@
   - Logging out
 ## Getting started with our Back End API
   - Starting the back end API
+  - Adding handlers and routes to our API

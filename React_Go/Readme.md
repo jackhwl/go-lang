@@ -44,3 +44,4 @@
   - Adding handlers and routes to our API
   - Installing a routing package
   - Adding a route to our handlers
+  - Returning JSON from our API

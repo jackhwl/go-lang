@@ -12,7 +12,8 @@ func (app *application) routes() http.Handler {
 
 	mux.Use(middleware.Recoverer) // Recover from panics and return a 500 error
 
-	mux.Get("/", app.Home) // Handle the root path with the Home handler
+	mux.Get("/", app.Home)            // Handle the root path with the Home handler
+	mux.Get("/movies", app.AllMovies) // Handle the /movies path with the AllMovies handler
 	// Return the mux as the handler
 	return mux
 }

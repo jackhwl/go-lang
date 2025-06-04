@@ -45,3 +45,4 @@
   - Installing a routing package
   - Adding a route to our handlers
   - Returning JSON from our API
+  - Returning a list of movies as JSON

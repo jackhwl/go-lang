@@ -47,3 +47,4 @@
   - Returning JSON from our API
   - Returning a list of movies as JSON
   - Connecting the front end to the back end API
+  - Enabling CORS middleware

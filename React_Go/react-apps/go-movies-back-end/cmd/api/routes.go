@@ -11,6 +11,7 @@ func (app *application) routes() http.Handler {
 	mux := chi.NewRouter()
 
 	mux.Use(middleware.Recoverer) // Recover from panics and return a 500 error
+	mux.Use(app.enableCORS)       // Enable CORS for all routes
 
 	mux.Get("/", app.Home)            // Handle the root path with the Home handler
 	mux.Get("/movies", app.AllMovies) // Handle the /movies path with the AllMovies handler

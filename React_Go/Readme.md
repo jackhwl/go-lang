@@ -48,3 +48,4 @@
   - Returning a list of movies as JSON
   - Connecting the front end to the back end API
   - Enabling CORS middleware
+  - Enabling React's proxy to the back end API

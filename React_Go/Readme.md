@@ -53,3 +53,6 @@
   - Setting up our database using Docker
     - docker compose up -d
   - Getting started connection our API to Postgres
+    - go get github.com/jackc/pgx/v4
+  - Installing a database driver and connecting to Postgres
+  

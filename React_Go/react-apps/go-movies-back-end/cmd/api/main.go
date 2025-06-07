@@ -30,6 +30,7 @@ func main() {
 		log.Fatal("Cannot connect to database:", err)
 	}
 	app.DB = conn
+	defer app.DB.Close()
 
 	app.Domain = "example.com"
 	log.Println("Starting application on port", port)

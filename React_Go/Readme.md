@@ -52,3 +52,4 @@
 ## Connection to Postgres
   - Setting up our database using Docker
     - docker compose up -d
+  - Getting started connection our API to Postgres

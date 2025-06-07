@@ -49,3 +49,6 @@
   - Connecting the front end to the back end API
   - Enabling CORS middleware
   - Enabling React's proxy to the back end API
+## Connection to Postgres
+  - Setting up our database using Docker
+    - docker compose up -d

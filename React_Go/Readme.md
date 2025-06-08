@@ -57,3 +57,4 @@
   - Installing a database driver and connecting to Postgres
   - Setting up a database repository I
   - Setting up a database repository II
+  - Improving the allMovies handler to use our database

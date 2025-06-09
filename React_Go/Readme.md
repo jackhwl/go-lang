@@ -60,3 +60,4 @@
   - Improving the allMovies handler to use our database
 ## Working with JSON
   - Setting up utils.go and a writeJSON helper
+  - Adding a readJSON helper function

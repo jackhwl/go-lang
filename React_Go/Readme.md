@@ -61,3 +61,4 @@
 ## Working with JSON
   - Setting up utils.go and a writeJSON helper
   - Adding a readJSON helper function
+  - Adding an errorJSON helper function

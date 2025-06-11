@@ -22,7 +22,7 @@ func (app *application) Home(w http.ResponseWriter, r *http.Request) {
 func (app *application) AllMovies(w http.ResponseWriter, r *http.Request) {
 	movies, err := app.DB.AllMovies()
 	if err != nil {
-		http.Error(w, "Error fetching movies", http.StatusInternalServerError)
+		app.errorJSON(w, err)
 		return
 	}
 

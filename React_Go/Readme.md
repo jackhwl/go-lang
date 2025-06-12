@@ -66,3 +66,4 @@
 ## Authentication with JWT
   - Installing a JWT package
     - go get github.com/golang-jwt/jwt/v4
+  - Generating tokens

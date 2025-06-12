@@ -63,3 +63,6 @@
   - Adding a readJSON helper function
   - Adding an errorJSON helper function
   - Using our errorJSON helper function
+## Authentication with JWT
+  - Installing a JWT package
+    - go get github.com/golang-jwt/jwt/v4

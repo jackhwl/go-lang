@@ -7,14 +7,20 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 )
 
 const port = 8080
 
 type application struct {
-	DSN    string
-	Domain string
-	DB     repository.DatabaseRepo
+	DSN          string
+	Domain       string
+	DB           repository.DatabaseRepo
+	auth         Auth
+	JWTISecret   string
+	JWTIssuer    string
+	JWTAudience  string
+	CookieDomain string
 }
 
 func main() {
@@ -23,6 +29,11 @@ func main() {
 
 	// read from command line
 	flag.StringVar(&app.DSN, "dsn", "host=localhost port=5432 user=postgres password=postgres dbname=movies sslmode=disable timezone=UTC connect_timeout=5", "PostgreSQL connection string")
+	flag.StringVar(&app.JWTISecret, "jwt-secret", "mysecret", "JWT secret key")
+	flag.StringVar(&app.JWTIssuer, "jwt-issuer", "go-movies", "JWT issuer")
+	flag.StringVar(&app.JWTAudience, "jwt-audience", "go-movies-users", "JWT audience")
+	flag.StringVar(&app.CookieDomain, "cookie-domain", "localhost", "Cookie domain for JWT")
+	flag.StringVar(&app.Domain, "domain", "example.com", "Domain for the application")
 	flag.Parse()
 
 	// connect to the database
@@ -35,7 +46,17 @@ func main() {
 	}
 	defer app.DB.Connection().Close()
 
-	app.Domain = "example.com"
+	app.auth = Auth{
+		Issuer:        app.JWTIssuer,
+		Audience:      app.JWTAudience,
+		Secret:        app.JWTISecret,
+		TokenExpiry:   15 * time.Minute, // 15 minutes
+		RefreshExpiry: 24 * time.Hour,   // 24 hours
+		CookieDomain:  app.CookieDomain,
+		CookiePath:    "/",
+		CookieName:    "__Host-refresh_jwt_token",
+	}
+
 	log.Println("Starting application on port", port)
 	// http.HandleFunc("/", Hello)
 	// start a web server

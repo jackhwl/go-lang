@@ -69,3 +69,4 @@
   - Generating tokens
   - Setting default values for JWT tokens
   - Creating a handler to generate a JWT
+  - Trying out our handler

@@ -68,3 +68,4 @@
     - go get github.com/golang-jwt/jwt/v4
   - Generating tokens
   - Setting default values for JWT tokens
+  - Creating a handler to generate a JWT

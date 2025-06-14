@@ -71,3 +71,4 @@
   - Creating a handler to generate a JWT
   - Trying out our handler
   - Generate refresh token cookie
+  - Reading a JSON payload in the authenticate

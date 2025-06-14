@@ -72,3 +72,4 @@
   - Trying out our handler
   - Generate refresh token cookie
   - Reading a JSON payload in the authenticate
+  - Looking up a user by email

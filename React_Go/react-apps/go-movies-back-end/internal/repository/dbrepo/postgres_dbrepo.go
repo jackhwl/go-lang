@@ -93,4 +93,3 @@ func (m *PostgresDBRepo) GetUserByEmail(email string) (*models.User, error) {
 
 	return &user, nil
 }
-f

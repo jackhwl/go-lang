@@ -54,7 +54,7 @@ func main() {
 		RefreshExpiry: 24 * time.Hour,   // 24 hours
 		CookieDomain:  app.CookieDomain,
 		CookiePath:    "/",
-		CookieName:    "__Host-refresh_jwt_token",
+		CookieName:    "refresh_jwt_token",
 	}
 
 	log.Println("Starting application on port", port)

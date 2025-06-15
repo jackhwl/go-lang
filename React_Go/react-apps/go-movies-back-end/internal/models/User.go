@@ -18,6 +18,20 @@ type User struct {
 }
 
 func (u *User) PasswordMatches(plainText string) (bool, error) {
+	// Check if password hash is empty
+	if u.Password == "" {
+		return false, errors.New("stored password hash is empty")
+	}
+
+	// Check if plainText is empty
+	if plainText == "" {
+		return false, errors.New("plaintext password is empty")
+	}
+
+	// Add length check for bcrypt hash (should be 60 characters)
+	if len(u.Password) != 60 {
+		return false, errors.New("invalid password hash format")
+	}
 	err := bcrypt.CompareHashAndPassword([]byte(u.Password), []byte(plainText))
 	if err != nil {
 		switch {

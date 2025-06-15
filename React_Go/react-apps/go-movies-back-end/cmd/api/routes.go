@@ -15,7 +15,7 @@ func (app *application) routes() http.Handler {
 
 	mux.Get("/", app.Home) // Handle the root path with the Home handler
 
-	mux.Get("/authenticate", app.authenticate) // Handle the /authenticate path with the authenticate handler
+	mux.Post("/authenticate", app.authenticate) // Handle the /authenticate path with the authenticate handler
 
 	mux.Get("/movies", app.AllMovies) // Handle the /movies path with the AllMovies handler
 	// Return the mux as the handler

@@ -14,17 +14,53 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Login submitted", email, password);
+        //console.log("Login submitted", email, password);
         
-        if (email === "admin@jack.com") {
-            setJwtToken("abc");
-            setAlertClassName("d-none");
-            setAlertMessage("");
-            navigate("/");
-        } else {
-            setAlertClassName("alert-danger");
-            setAlertMessage("Invalid email or password");
-        }
+        // if (email === "admin@jack.com") {
+        //     setJwtToken("abc");
+        //     setAlertClassName("d-none");
+        //     setAlertMessage("");
+        //     navigate("/");
+        // } else {
+        //     setAlertClassName("alert-danger");
+        //     setAlertMessage("Invalid email or password");
+        // }
+
+        // build request payload
+        let payload = {
+            email: email,
+            password: password
+        };
+console.log("Login submitted", payload);
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify(payload)
+        };
+
+        fetch(`/authenticate`, requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => { console.log('aaa==============='); throw err });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    setAlertClassName("alert-danger");
+                    setAlertMessage(data.error.message);
+                } else {
+                    setJwtToken(data.access_token);
+                    setAlertClassName("d-none");
+                    setAlertMessage("");
+                    navigate("/");
+                }
+            })
+            .catch(error => {
+                setAlertClassName("alert-danger");
+                setAlertMessage(error.message);
+            });
     }
 
     return (

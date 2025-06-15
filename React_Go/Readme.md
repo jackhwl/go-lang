@@ -74,3 +74,4 @@
   - Reading a JSON payload in the authenticate
   - Looking up a user by email
   - Validating a password
+  - Updating the Login component on the front end

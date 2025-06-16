@@ -17,7 +17,7 @@ type application struct {
 	Domain       string
 	DB           repository.DatabaseRepo
 	auth         Auth
-	JWTISecret   string
+	JWTSecret    string
 	JWTIssuer    string
 	JWTAudience  string
 	CookieDomain string
@@ -29,7 +29,7 @@ func main() {
 
 	// read from command line
 	flag.StringVar(&app.DSN, "dsn", "host=localhost port=5432 user=postgres password=postgres dbname=movies sslmode=disable timezone=UTC connect_timeout=5", "PostgreSQL connection string")
-	flag.StringVar(&app.JWTISecret, "jwt-secret", "mysecret", "JWT secret key")
+	flag.StringVar(&app.JWTSecret, "jwt-secret", "mysecret", "JWT secret key")
 	flag.StringVar(&app.JWTIssuer, "jwt-issuer", "go-movies", "JWT issuer")
 	flag.StringVar(&app.JWTAudience, "jwt-audience", "go-movies-users", "JWT audience")
 	flag.StringVar(&app.CookieDomain, "cookie-domain", "localhost", "Cookie domain for JWT")
@@ -49,7 +49,7 @@ func main() {
 	app.auth = Auth{
 		Issuer:        app.JWTIssuer,
 		Audience:      app.JWTAudience,
-		Secret:        app.JWTISecret,
+		Secret:        app.JWTSecret,
 		TokenExpiry:   15 * time.Minute, // 15 minutes
 		RefreshExpiry: 24 * time.Hour,   // 24 hours
 		CookieDomain:  app.CookieDomain,

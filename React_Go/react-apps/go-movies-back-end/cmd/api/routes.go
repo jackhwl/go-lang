@@ -17,6 +17,7 @@ func (app *application) routes() http.Handler {
 
 	mux.Post("/authenticate", app.authenticate) // Handle the /authenticate path with the authenticate handler
 	mux.Get("/refresh", app.refreshToken)       // Handle the /refresh path with the refresh handler
+	mux.Get("/logout", app.logout)              // Handle the /logout path with the logout handler
 
 	mux.Get("/movies", app.AllMovies) // Handle the /movies path with the AllMovies handler
 	// Return the mux as the handler

@@ -9,7 +9,19 @@ function App() {
   const navigate = useNavigate();
 
   const logout = () => {
-    setJwtToken("");
+    const requestOptions = {
+      method: 'GET',
+      credentials: 'include'
+    };
+
+    fetch(`/logout`, requestOptions)
+    .catch(error => {
+      console.error('Error during logout:', error);
+    })
+    .finally(() => {
+      setJwtToken("");
+    });
+    
     navigate("/login");
   }
 

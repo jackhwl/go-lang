@@ -8,7 +8,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     const { setJwtToken } = useOutletContext();
-    const { setAlertMessage, setAlertClassName } = useOutletContext();
+    const { setAlertMessage, setAlertClassName , toggleRefresh} = useOutletContext();
 
     const navigate = useNavigate()
 
@@ -54,6 +54,7 @@ console.log("Login submitted", payload);
                     setJwtToken(data.access_token);
                     setAlertClassName("d-none");
                     setAlertMessage("");
+                    toggleRefresh(true);
                     navigate("/");
                 }
             })

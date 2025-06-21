@@ -82,3 +82,4 @@
   - Refresh token V
   - Protecting rooutes using JWT tokens
   - Authentication middleware
+  - Adding our middleware to route

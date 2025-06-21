@@ -20,6 +20,12 @@ func (app *application) routes() http.Handler {
 	mux.Get("/logout", app.logout)              // Handle the /logout path with the logout handler
 
 	mux.Get("/movies", app.AllMovies) // Handle the /movies path with the AllMovies handler
+
+	mux.Route("/admin", func(r chi.Router) {
+		mux.Use(app.authRequired) // Require authentication for all routes under /admin
+
+		mux.Get("/movies", app.MoiveCatalog) // Handle the /admin/movies path with the AdminAllMovies handler
+	})
 	// Return the mux as the handler
 	return mux
 }

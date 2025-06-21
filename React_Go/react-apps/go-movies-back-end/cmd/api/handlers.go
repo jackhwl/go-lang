@@ -129,3 +129,6 @@ func (app *application) logout(w http.ResponseWriter, r *http.Request) {
 	http.SetCookie(w, app.auth.GetExpiredRefreshCookie()) // Set an expired cookie to clear the refresh token
 	w.WriteHeader(http.StatusAccepted)
 }
+
+func (app *application) MoiveCatalog(w http.ResponseWriter, r *http.Request) {
+}

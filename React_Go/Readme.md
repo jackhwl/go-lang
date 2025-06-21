@@ -83,3 +83,4 @@
   - Protecting rooutes using JWT tokens
   - Authentication middleware
   - Adding our middleware to route
+  - Trying our protected routes

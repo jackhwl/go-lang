@@ -21,7 +21,7 @@ func (app *application) routes() http.Handler {
 
 	mux.Get("/movies", app.AllMovies) // Handle the /movies path with the AllMovies handler
 
-	mux.Route("/admin", func(r chi.Router) {
+	mux.Route("/admin", func(mux chi.Router) {
 		mux.Use(app.authRequired) // Require authentication for all routes under /admin
 
 		mux.Get("/movies", app.MoiveCatalog) // Handle the /admin/movies path with the AdminAllMovies handler

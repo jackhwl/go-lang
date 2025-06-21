@@ -81,3 +81,4 @@
   - Refresh token IV
   - Refresh token V
   - Protecting rooutes using JWT tokens
+  - Authentication middleware

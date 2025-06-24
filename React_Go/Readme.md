@@ -84,3 +84,5 @@
   - Authentication middleware
   - Adding our middleware to route
   - Trying our protected routes
+## Create/Read/Update/Delete for our Movie Catelogue
+  - Starting on the Add/Edit movie component

@@ -87,3 +87,4 @@
 ## Create/Read/Update/Delete for our Movie Catelogue
   - Starting on the Add/Edit movie component
   - Creating a select component
+  - Creating a checkbox component

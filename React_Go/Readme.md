@@ -88,3 +88,4 @@
   - Starting on the Add/Edit movie component
   - Creating a select component
   - Creating a checkbox component
+  - Using our input controls to create the edit movie form

@@ -89,3 +89,4 @@
   - Creating a select component
   - Creating a checkbox component
   - Using our input controls to create the edit movie form
+  - Continuing to work on the EditMoive component

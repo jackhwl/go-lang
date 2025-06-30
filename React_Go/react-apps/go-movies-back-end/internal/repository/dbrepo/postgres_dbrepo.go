@@ -60,6 +60,170 @@ func (m *PostgresDBRepo) AllMovies() ([]*models.Movie, error) {
 	return movies, nil
 }
 
+func (m *PostgresDBRepo) OneMovie(id int) (*models.Movie, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
+	defer cancel()
+
+	query := `
+		SELECT 
+			id, title, description, release_date, runtime, mpaa_rating, 
+			coalesce(image, ''), created_at, updated_at
+		FROM 
+			movies
+		WHERE 
+			id = $1
+	`
+	var movie models.Movie
+	row := m.DB.QueryRowContext(ctx, query, id)
+	err := row.Scan(
+		&movie.ID,
+		&movie.Title,
+		&movie.Description,
+		&movie.ReleaseDate,
+		&movie.RunTime,
+		&movie.MPAARating,
+		&movie.Image,
+		&movie.CreatedAt,
+		&movie.UpdatedAt,
+	)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil, nil // Movie not found
+		}
+		return nil, err // Other error
+	}
+
+	// get genres for the movie
+	genreQuery := `
+		SELECT 
+			g.id, g.name
+		FROM 
+			moovies_genres mg
+		LEFT JOIN 
+			genres g on mg.genre_id = g.id
+		WHERE 
+			mg.movie_id = $1
+		ORDER BY 
+			g.genre ASC
+	`
+	rows, err := m.DB.QueryContext(ctx, genreQuery, id)
+	if err != nil && err != sql.ErrNoRows {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var genres []*models.Genre
+	for rows.Next() {
+		var g models.Genre
+		err := rows.Scan(&g.ID, &g.Genre)
+		if err != nil {
+			return nil, err
+		}
+		g.Checked = false // Default to unchecked
+		genres = append(genres, &g)
+	}
+
+	movie.Genres = genres
+
+	return &movie, err
+}
+
+func (m *PostgresDBRepo) OneMovieForEdit(id int) (*models.Movie, []*models.Genre, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
+	defer cancel()
+
+	query := `
+		SELECT 
+			id, title, description, release_date, runtime, mpaa_rating, 
+			coalesce(image, ''), created_at, updated_at
+		FROM 
+			movies
+		WHERE 
+			id = $1
+	`
+	var movie models.Movie
+	row := m.DB.QueryRowContext(ctx, query, id)
+	err := row.Scan(
+		&movie.ID,
+		&movie.Title,
+		&movie.Description,
+		&movie.ReleaseDate,
+		&movie.RunTime,
+		&movie.MPAARating,
+		&movie.Image,
+		&movie.CreatedAt,
+		&movie.UpdatedAt,
+	)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil, nil, nil // Movie not found
+		}
+		return nil, nil, err // Other error
+	}
+
+	// get genres for the movie
+	genreQuery := `
+		SELECT 
+			g.id, g.name
+		FROM 
+			moovies_genres mg
+		LEFT JOIN 
+			genres g on mg.genre_id = g.id
+		WHERE 
+			mg.movie_id = $1
+		ORDER BY 
+			g.genre ASC
+	`
+	rows, err := m.DB.QueryContext(ctx, genreQuery, id)
+	if err != nil && err != sql.ErrNoRows {
+		return nil, nil, err
+	}
+	defer rows.Close()
+
+	var genres []*models.Genre
+	var genresArray []int
+	for rows.Next() {
+		var g models.Genre
+		err := rows.Scan(&g.ID, &g.Genre)
+		if err != nil {
+			return nil, nil, err
+		}
+		g.Checked = false // Default to unchecked
+		genres = append(genres, &g)
+		genresArray = append(genresArray, g.ID) // Collect genre IDs for the movie
+	}
+
+	movie.Genres = genres
+	movie.GenresArray = genresArray // Store the genre IDs in the movie struct
+
+	allGenres []*models.Genre
+	// get all genres
+	allGenresQuery := `		
+		SELECT 
+			id, genre
+		FROM 
+			genres
+		ORDER BY 
+			genre
+			`
+	rows, err = m.DB.QueryContext(ctx, allGenresQuery)
+	if err != nil && err != sql.ErrNoRows {
+		return nil, nil, err
+	}
+	defer rows.Close()
+	for rows.Next() {
+		var g models.Genre
+		err := rows.Scan(&g.ID, &g.Genre)
+		if err != nil {
+			return nil, nil, err
+		}
+
+		allGenres = append(allGenres, &g)
+	}
+
+	return &movie, err
+}
+
 func (m *PostgresDBRepo) GetUserByEmail(email string) (*models.User, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
 	defer cancel()

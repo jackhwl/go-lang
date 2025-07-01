@@ -96,9 +96,9 @@ func (m *PostgresDBRepo) OneMovie(id int) (*models.Movie, error) {
 	// get genres for the movie
 	genreQuery := `
 		SELECT 
-			g.id, g.name
+			g.id, g.genre
 		FROM 
-			moovies_genres mg
+			movies_genres mg
 		LEFT JOIN 
 			genres g on mg.genre_id = g.id
 		WHERE 
@@ -196,7 +196,7 @@ func (m *PostgresDBRepo) OneMovieForEdit(id int) (*models.Movie, []*models.Genre
 	movie.Genres = genres
 	movie.GenresArray = genresArray // Store the genre IDs in the movie struct
 
-	allGenres []*models.Genre
+	var allGenres []*models.Genre
 	// get all genres
 	allGenresQuery := `		
 		SELECT 
@@ -221,7 +221,7 @@ func (m *PostgresDBRepo) OneMovieForEdit(id int) (*models.Movie, []*models.Genre
 		allGenres = append(allGenres, &g)
 	}
 
-	return &movie, err
+	return &movie, allGenres, err
 }
 
 func (m *PostgresDBRepo) GetUserByEmail(email string) (*models.User, error) {

@@ -19,12 +19,14 @@ func (app *application) routes() http.Handler {
 	mux.Get("/refresh", app.refreshToken)       // Handle the /refresh path with the refresh handler
 	mux.Get("/logout", app.logout)              // Handle the /logout path with the logout handler
 
-	mux.Get("/movies", app.AllMovies) // Handle the /movies path with the AllMovies handler
+	mux.Get("/movies", app.AllMovies)     // Handle the /movies path with the AllMovies handler
+	mux.Get("/movies/{id}", app.GetMovie) // Handle the /movies/{id} path with the OneMovie handler
 
 	mux.Route("/admin", func(mux chi.Router) {
 		mux.Use(app.authRequired) // Require authentication for all routes under /admin
 
-		mux.Get("/movies", app.MoiveCatalog) // Handle the /admin/movies path with the AdminAllMovies handler
+		mux.Get("/movies", app.MoiveCatalog)      // Handle the /admin/movies path with the AdminAllMovies handler
+		mux.Get("/movies/{id}", app.MovieForEdit) // Handle the /admin/movies/{id} path with the AdminOneMovie handler
 	})
 	// Return the mux as the handler
 	return mux

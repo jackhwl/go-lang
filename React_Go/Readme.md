@@ -91,3 +91,4 @@
   - Using our input controls to create the edit movie form
   - Continuing to work on the EditMoive component
   - Getting a movie and Genres from the database
+  - Creating handlers to get moives foor public and admin

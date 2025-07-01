@@ -1,10 +1,12 @@
 package main
 
 import (
+	"backend/internal/models"
 	"errors"
 	"net/http"
 	"strconv"
 
+	"github.com/go-chi/chi/v5"
 	"github.com/golang-jwt/jwt/v4"
 )
 
@@ -138,4 +140,58 @@ func (app *application) MoiveCatalog(w http.ResponseWriter, r *http.Request) {
 	}
 
 	_ = app.writeJSON(w, http.StatusOK, movies)
+}
+
+func (app *application) GetMovie(w http.ResponseWriter, r *http.Request) {
+	idParam := chi.URLParam(r, "id")
+	id, err := strconv.Atoi(idParam)
+	if err != nil || id <= 0 {
+		app.errorJSON(w, errors.New("invalid id"), http.StatusBadRequest)
+		return
+	}
+
+	movie, err := app.DB.OneMovie(id)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+
+	if movie == nil {
+		app.errorJSON(w, errors.New("movie not found"), http.StatusNotFound)
+		return
+	}
+
+	_ = app.writeJSON(w, http.StatusOK, movie)
+
+}
+
+func (app *application) MovieForEdit(w http.ResponseWriter, r *http.Request) {
+	idParam := chi.URLParam(r, "id")
+	id, err := strconv.Atoi(idParam)
+	if err != nil || id <= 0 {
+		app.errorJSON(w, errors.New("invalid movie ID"), http.StatusBadRequest)
+		return
+	}
+
+	movie, genres, err := app.DB.OneMovieForEdit(id)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+
+	if movie == nil {
+		app.errorJSON(w, errors.New("movie not found"), http.StatusNotFound)
+		return
+	}
+
+	response := struct {
+		Movie  *models.Movie   `json:"movie"`
+		Genres []*models.Genre `json:"genres"`
+	}{
+		Movie:  movie,
+		Genres: genres,
+	}
+
+	_ = app.writeJSON(w, http.StatusOK, response)
+
 }

@@ -195,3 +195,18 @@ func (app *application) MovieForEdit(w http.ResponseWriter, r *http.Request) {
 	_ = app.writeJSON(w, http.StatusOK, response)
 
 }
+
+func (app *application) AllGenres(w http.ResponseWriter, r *http.Request) {
+	genres, err := app.DB.AllGenres()
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+
+	if genres == nil {
+		app.errorJSON(w, errors.New("no genres found"), http.StatusNotFound)
+		return
+	}
+
+	_ = app.writeJSON(w, http.StatusOK, genres)
+}

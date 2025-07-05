@@ -3,6 +3,7 @@ import { useNavigate, useOutletContext, useParams } from "react-router-dom";
 import Input from "./form/Input";
 import Select from "./form/Select";
 import TextArea from "./form/TextArea";
+import Checkbox from "./form/Checkbox";
 
 const EditMovie = () => {
     const navigate = useNavigate();
@@ -31,6 +32,8 @@ const EditMovie = () => {
         mpaa_rating: "",
         description: "",
         runtime: "",
+        genres: [],
+        genres_array: [Array(13).fill(false)]
     });
 
 
@@ -38,12 +41,59 @@ const EditMovie = () => {
     // get id from URL
     let { id } = useParams();
 
+    if (id === undefined) {
+        id = 0;
+    }    
     useEffect(() => {
         if (jwtToken === "") {
             navigate('/login');
             return;
         }
-    }, [jwtToken, navigate]);
+
+        if (id === 0) {
+            // New movie, no need to fetch data
+            setMovie({
+                id: 0,
+                title: "",
+                release_date: "",
+                mpaa_rating: "",
+                description: "",
+                runtime: "",
+                genres: [],
+                genres_array: [Array(13).fill(false)]
+            });
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+
+            const requestOptions = {
+                method: 'GET',
+                headers: headers,
+            };
+
+            fetch(`/genres`, requestOptions)
+                .then((response) => response.json())
+                .then((data) => {
+                    let genres = data.map(g => {
+                        return {
+                            id: g.id,
+                            genre: g.genre,
+                            checked: false
+                        }
+                    });
+                    setMovie(m => ({
+                        ...movie,
+                        genres: genres,
+                        genres_array: Array(genres.length).fill(false)
+                    }));
+                })
+                .catch((error) => {
+                    console.error('Error fetching genres:', error);
+                });
+        } else {
+            // Fetch movie data for editing
+                    }
+    }, [id, jwtToken, navigate]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -56,6 +106,12 @@ const EditMovie = () => {
         setMovie({...movie, [name]: value });
     }
 
+    const handleCheck = (event, index) => {
+        let value = event.target.value;
+        let checked = event.target.checked;
+
+        console.log("handleCheck, value, checked, index", value, checked, index);
+    }
 
     return (
         <div>
@@ -116,7 +172,23 @@ const EditMovie = () => {
                         errorDiv={hasError("description") ? "text-danger" : "d-none"}
                         errorMsg={"Please enter a description"}
                     />
+
+                    <hr />
+                    <h3>Genres</h3>
+                    {movie.genres && movie.genres.map((genre, index) => (
+                        <div key={genre.id} className="form-check">
+                            <Checkbox 
+                                title={genre.genre}
+                                name={`genre`}
+                                key={index}
+                                id={`genre-${index}`}
+                                onChange={(e) => handleCheck(e, index)}
+                                value={genre.id}
+                                checked={movie.genres_array[index].checked} />
+                        </div>
+                    ))}
                 </div>
+                    <button type="submit" className="btn btn-primary mt-3">Save</button>
                 <div className="text-danger">{error}</div>      
             </form>
         </div>

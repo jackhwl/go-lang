@@ -94,3 +94,4 @@
   - Creating handlers to get moives foor public and admin
   - Displaying a movie to the pulbic on the front end
   - Getting started with showing genres on the Add/Edit movie component
+  - Adding checkboxes for genres to the front end form

@@ -81,10 +81,10 @@ const EditMovie = () => {
                             checked: false
                         }
                     });
-                    setMovie(m => ({
+                    setMovie(movie => ({
                         ...movie,
                         genres: genres,
-                        genres_array: Array(genres.length).fill(false)
+                        genres_array: [],
                     }));
                 })
                 .catch((error) => {
@@ -111,8 +111,24 @@ const EditMovie = () => {
         let checked = event.target.checked;
 
         console.log("handleCheck, value, checked, index", value, checked, index);
-    }
 
+        let tmpArr = movie.genres;
+        tmpArr[index].checked = !tmpArr[index].checked;
+
+        let tempIDs = movie.genres_array;
+        if (!event.target.checked) {
+            tempIDs.splice(tempIDs.indexOf(event.target.value));
+        }
+        else {
+            tempIDs.push(parseInt(event.target.value, 10));
+        }
+
+        setMovie({
+            ...movie,
+            genres_array: tempIDs
+        })
+    }
+    
     return (
         <div>
             <h2>Add/Edit Movie!</h2>
@@ -175,7 +191,7 @@ const EditMovie = () => {
 
                     <hr />
                     <h3>Genres</h3>
-                    {movie.genres && movie.genres.map((genre, index) => (
+                    {movie.genres && Array.from(movie.genres).map((genre, index) => (
                         <div key={genre.id} className="form-check">
                             <Checkbox 
                                 title={genre.genre}
@@ -184,7 +200,7 @@ const EditMovie = () => {
                                 id={`genre-${index}`}
                                 onChange={(e) => handleCheck(e, index)}
                                 value={genre.id}
-                                checked={movie.genres_array[index].checked} />
+                                checked={movie.genres[index].checked} />
                         </div>
                     ))}
                 </div>

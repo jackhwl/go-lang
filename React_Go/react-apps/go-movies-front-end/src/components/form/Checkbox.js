@@ -4,12 +4,13 @@ const CheckBox = (props) => {
             <input
                 type="checkbox"
                 className="form-check-input"
-                id={props.name}
+                id={props.id}
                 name={props.name}
+                value={props.value}
                 checked={props.checked}
                 onChange={props.onChange}
             />
-            <label htmlFor={props.name} className="form-check-label">{props.title}</label>
+            <label htmlFor={props.id} className="form-check-label">{props.title}</label>
             <div className={props.errorDiv}>{props.errorMsg}</div>
         </div>
     );

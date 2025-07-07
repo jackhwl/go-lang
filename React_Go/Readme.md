@@ -96,3 +96,4 @@
   - Getting started with showing genres on the Add/Edit movie component
   - Adding checkboxes for genres to the front end form
   - Enabling checkbox clicks on the EditMovie
+  - Validation I

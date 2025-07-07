@@ -98,6 +98,27 @@ const EditMovie = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         // Handle form submission logic here
+
+        let errors = [];
+        let required = [
+            { field: movie.title, name: "title" },
+            { field: movie.release_date, name: "release_date" },
+            { field: movie.mpaa_rating, name: "mpaa_rating" },
+            { field: movie.description, name: "description" },
+            { field: movie.runtime, name: "runtime" }
+        ];
+
+        required.forEach((item) => {
+            if (item.field === "") {
+                errors.push(item.name);
+            }
+        });
+
+        setErrors(errors);
+
+        if (errors.length > 0) {        
+            return false
+        }
     };
 
     const handleChange = () => (event) => {
@@ -192,7 +213,6 @@ const EditMovie = () => {
                     <hr />
                     <h3>Genres</h3>
                     {movie.genres && Array.from(movie.genres).map((genre, index) => (
-                        <div key={genre.id} className="form-check">
                             <Checkbox 
                                 title={genre.genre}
                                 name={`genre`}
@@ -201,7 +221,6 @@ const EditMovie = () => {
                                 onChange={(e) => handleCheck(e, index)}
                                 value={genre.id}
                                 checked={movie.genres[index].checked} />
-                        </div>
                     ))}
                 </div>
                     <button type="submit" className="btn btn-primary mt-3">Save</button>

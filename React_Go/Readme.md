@@ -97,3 +97,4 @@
   - Adding checkboxes for genres to the front end form
   - Enabling checkbox clicks on the EditMovie
   - Validation I
+  - Validation II

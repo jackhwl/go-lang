@@ -99,3 +99,4 @@
   - Validation I
   - Validation II
   - Creating a database method to insert a movie
+  - Creating a handler to insert a movie

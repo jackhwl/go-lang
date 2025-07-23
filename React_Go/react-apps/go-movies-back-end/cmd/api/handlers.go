@@ -210,3 +210,27 @@ func (app *application) AllGenres(w http.ResponseWriter, r *http.Request) {
 
 	_ = app.writeJSON(w, http.StatusOK, genres)
 }
+
+func (app *application) InsertMovie(w http.ResponseWriter, r *http.Request) {
+	var movie models.Movie
+
+	err := app.readJSON(w, r, &movie)
+	if err != nil {
+		app.errorJSON(w, err, http.StatusBadRequest)
+		return
+	}
+
+	if movie.Title == "" || movie.Description == "" || len(movie.Genres) == 0 {
+		app.errorJSON(w, errors.New("missing required fields"), http.StatusBadRequest)
+		return
+	}
+
+	id, err := app.DB.InsertMovie(&movie)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
+
+	movie.ID = id
+	app.writeJSON(w, http.StatusCreated, movie)
+}

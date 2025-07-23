@@ -29,6 +29,7 @@ func (app *application) routes() http.Handler {
 
 		mux.Get("/movies", app.MoiveCatalog)      // Handle the /admin/movies path with the AdminAllMovies handler
 		mux.Get("/movies/{id}", app.MovieForEdit) // Handle the /admin/movies/{id} path with the AdminOneMovie handler
+		mux.Put("/movies/0", app.InsertMovie)     // Handle the /admin/movies/0 path with the InsertMovie handler
 	})
 	// Return the mux as the handler
 	return mux

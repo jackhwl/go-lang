@@ -21,6 +21,7 @@ type application struct {
 	JWTIssuer    string
 	JWTAudience  string
 	CookieDomain string
+	APIKey       string
 }
 
 func main() {
@@ -34,6 +35,7 @@ func main() {
 	flag.StringVar(&app.JWTAudience, "jwt-audience", "go-movies-users", "JWT audience")
 	flag.StringVar(&app.CookieDomain, "cookie-domain", "localhost", "Cookie domain for JWT")
 	flag.StringVar(&app.Domain, "domain", "example.com", "Domain for the application")
+	flag.StringVar(&app.APIKey, "api-key", "65da03e73a93b102f3265cf3f59d70d1", "API key for external services")
 	flag.Parse()
 
 	// connect to the database

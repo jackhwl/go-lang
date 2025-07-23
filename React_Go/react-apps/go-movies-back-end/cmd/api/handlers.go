@@ -2,8 +2,13 @@ package main
 
 import (
 	"backend/internal/models"
+	"encoding/json"
 	"errors"
+	"fmt"
+	"io"
+	"log"
 	"net/http"
+	"net/url"
 	"strconv"
 
 	"github.com/go-chi/chi/v5"
@@ -220,6 +225,15 @@ func (app *application) InsertMovie(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// try to get an image
+	if movie.Image == "" {
+		movie.Image = "https://via.placeholder.com/150" // Default image if none
+	}
+	// now handle genres
+	if movie.Genres == nil {
+		movie.Genres = []*models.Genre{}
+	}
+
 	if movie.Title == "" || movie.Description == "" || len(movie.Genres) == 0 {
 		app.errorJSON(w, errors.New("missing required fields"), http.StatusBadRequest)
 		return
@@ -233,4 +247,52 @@ func (app *application) InsertMovie(w http.ResponseWriter, r *http.Request) {
 
 	movie.ID = id
 	app.writeJSON(w, http.StatusCreated, movie)
+}
+
+func (app *application) getPoster(movie models.Movie) models.Movie {
+	type TheMovieDB struct {
+		Page    int `json:"page"`
+		Results []struct {
+			PosterPath string `json:"poster_path"`
+		} `json:"results"`
+		TotalPages int `json:"total_pages"`
+	}
+
+	client := &http.Client{}
+	theUrl := fmt.Sprint("https://api.themoviedb.org/3/search/movie?api_key=", app.APIKey)
+
+	req, err := http.NewRequest("GET", theUrl+"&query="+url.QueryEscape(movie.Title), nil)
+	if err != nil {
+		log.Println(err)
+		return movie // Return the movie as is if there's an error
+	}
+
+	req.Header.Add("Accept", "application/json")
+	req.Header.Add("Content-Type", "application/json")
+
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Println(err)
+		return movie // Return the movie as is if there's an error
+	}
+	defer resp.Body.Close()
+
+	bodyBytes, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Println(err)
+		return movie // Return the movie as is if there's an error
+	}
+
+	var responseObject TheMovieDB
+
+	json.Unmarshal(bodyBytes, &responseObject)
+
+	if len(responseObject.Results) > 0 {
+		posterPath := responseObject.Results[0].PosterPath
+		if posterPath != "" {
+			movie.Image = posterPath
+		}
+	}
+
+	return movie
 }

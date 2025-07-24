@@ -101,3 +101,4 @@
   - Creating a database method to insert a movie
   - Creating a handler to insert a movie
   - Getting a movie image from a remote API I
+  - Getting a movie image from a remote API II

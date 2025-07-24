@@ -232,9 +232,16 @@ func (app *application) InsertMovie(w http.ResponseWriter, r *http.Request) {
 	movie.CreatedAt = time.Now()
 	movie.UpdatedAt = time.Now()
 
+	newID, err := app.DB.InsertMovie(&movie)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
+	}
 	// now handle genres
-	if movie.Genres == nil {
-		movie.Genres = []*models.Genre{}
+	err = app.DB.UpdateMovieGenres(newID, movie.GenresArray)
+	if err != nil {
+		app.errorJSON(w, err)
+		return
 	}
 
 	if movie.Title == "" || movie.Description == "" || len(movie.Genres) == 0 {
@@ -242,13 +249,7 @@ func (app *application) InsertMovie(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	id, err := app.DB.InsertMovie(&movie)
-	if err != nil {
-		app.errorJSON(w, err)
-		return
-	}
-
-	movie.ID = id
+	movie.ID = newID
 	app.writeJSON(w, http.StatusCreated, movie)
 }
 

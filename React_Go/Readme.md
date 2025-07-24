@@ -102,3 +102,4 @@
   - Creating a handler to insert a movie
   - Getting a movie image from a remote API I
   - Getting a movie image from a remote API II
+  - Handling genres when inserting a movie

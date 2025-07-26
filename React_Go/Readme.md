@@ -105,3 +105,4 @@
   - Handling genres when inserting a movie
   - Inserting a movie from the front end
   - Trying out adding a movie
+  - Editing an existing movie I

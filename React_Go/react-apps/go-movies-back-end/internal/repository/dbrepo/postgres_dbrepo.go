@@ -164,9 +164,9 @@ func (m *PostgresDBRepo) OneMovieForEdit(id int) (*models.Movie, []*models.Genre
 	// get genres for the movie
 	genreQuery := `
 		SELECT 
-			g.id, g.name
+			g.id, g.genre
 		FROM 
-			moovies_genres mg
+			movies_genres mg
 		LEFT JOIN 
 			genres g on mg.genre_id = g.id
 		WHERE 

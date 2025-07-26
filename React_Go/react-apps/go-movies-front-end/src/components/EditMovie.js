@@ -130,7 +130,45 @@ const EditMovie = () => {
         if (errors.length > 0) {        
             return false
         }
+
+        // passed validation, so save changes
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', `Bearer ${jwtToken}`);
+
+        let method = "PUT";
+
+        if (movie.id > 0) {
+            method = "PATCH"; // Update existing movie
+        }
+
+        const requestBody = movie;
+        
+        requestBody.release_date = new Date(movie.release_date);
+        requestBody.runtime = parseInt(movie.runtime, 10);
+
+        let requestOptions = {
+            method: method,
+            headers: headers,
+            body: JSON.stringify(requestBody),
+            credentials: 'include'
+        };
+
+        fetch(`/admin/movies/${movie.id}`, requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.error) {
+                    console.error("Error:", data.error);
+                } else {
+                    navigate("/manage-catelogue");
+                }
+            })
+            .catch((error) => {
+                console.error('Error saving movie:', error);
+                //setError("An error occurred while saving the movie.");
+            });
     };
+
 
     const handleChange = () => (event) => {
         let value = event.target.value;

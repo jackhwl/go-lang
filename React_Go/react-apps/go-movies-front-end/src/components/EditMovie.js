@@ -160,7 +160,7 @@ const EditMovie = () => {
                 if (data.error) {
                     console.error("Error:", data.error);
                 } else {
-                    navigate("/manage-catelogue");
+                    navigate("/manage-catalogue");
                 }
             })
             .catch((error) => {

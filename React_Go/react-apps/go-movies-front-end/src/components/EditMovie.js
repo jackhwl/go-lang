@@ -244,6 +244,43 @@ const EditMovie = () => {
         })
     }
     
+    const confirmDelete = () => {
+        Swal.fire({
+            title: "Delete movie?",
+            text: "You cannot undo this action!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const headers = new Headers();
+                headers.append('Content-Type', 'application/json');
+                headers.append('Authorization', `Bearer ${jwtToken}`);
+
+                const requestOptions = {
+                    method: 'DELETE',
+                    headers: headers,
+                    credentials: 'include'
+                };
+
+                fetch(`/admin/movies/${movie.id}`, requestOptions)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.error) {
+                            console.error("Error:", data.error);
+                        } else {
+                            navigate("/manage-catalogue");
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting movie:', error);
+                    });
+            }
+        });
+    };
+
     if (error !== null) {
         return (
             <div className="text-danger">Error: {error.message}</div>
@@ -322,8 +359,11 @@ const EditMovie = () => {
                                     checked={movie.genres[index].checked} />
                         ))}
                     </div>
-                        <button type="submit" className="btn btn-primary mt-3">Save</button>
-                    <div className="text-danger">{error}</div>      
+                    <hr />
+                    <button type="submit" className="btn btn-primary mt-3">Save</button>
+                    { movie.id > 0 &&
+                        <a href="#!" className="btn btn-danger mt-3 ms-2" onClick={confirmDelete}>Delete Movie</a>
+                    }
                 </form>
             </div>
         )

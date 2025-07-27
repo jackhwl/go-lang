@@ -111,3 +111,4 @@
   - Writing the handler to update a movie
   - Trying out editing a movie from the front end
   - Getting started with deleting a movie
+  - Deleting a movie II

@@ -108,3 +108,4 @@
   - Editing an existing movie I
   - Editing an existing movie II
   - Editing an existing movie III
+  - Writing the handler to update a movie

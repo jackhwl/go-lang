@@ -355,7 +355,7 @@ func (m *PostgresDBRepo) InsertMovie(movie *models.Movie) (int, error) {
 	return newID, nil
 }
 
-func (m *PostgresDBRepo) UpdateMovie(movie *models.Movie) error {
+func (m *PostgresDBRepo) UpdateMovie(movie models.Movie) error {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
 	defer cancel()
 

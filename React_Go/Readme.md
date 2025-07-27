@@ -109,3 +109,4 @@
   - Editing an existing movie II
   - Editing an existing movie III
   - Writing the handler to update a movie
+  - Trying out editing a movie from the front end

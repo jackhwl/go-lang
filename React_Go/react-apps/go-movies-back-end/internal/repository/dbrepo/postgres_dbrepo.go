@@ -389,7 +389,7 @@ func (m *PostgresDBRepo) UpdateMovieGenres(movieID int, genreIDs []int) error {
 
 	// First, remove existing genres for the movie
 	deleteStmt := `
-		DELETE FROM movie_genres
+		DELETE FROM movies_genres
 		WHERE movie_id = $1
 	`
 	_, err := m.DB.ExecContext(ctx, deleteStmt, movieID)
@@ -399,7 +399,7 @@ func (m *PostgresDBRepo) UpdateMovieGenres(movieID int, genreIDs []int) error {
 
 	// Now, insert the new genre associations
 	insertStmt := `
-		INSERT INTO movie_genres (movie_id, genre_id)
+		INSERT INTO movies_genres (movie_id, genre_id)
 		VALUES ($1, $2)
 	`
 	for _, genreID := range genreIDs {

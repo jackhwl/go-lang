@@ -112,3 +112,5 @@
   - Trying out editing a movie from the front end
   - Getting started with deleting a movie
   - Deleting a movie II
+  - Deleting a movie III
+  - Deleting a movie IV

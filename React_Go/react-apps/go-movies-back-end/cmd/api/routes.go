@@ -22,7 +22,8 @@ func (app *application) routes() http.Handler {
 	mux.Get("/movies", app.AllMovies)     // Handle the /movies path with the AllMovies handler
 	mux.Get("/movies/{id}", app.GetMovie) // Handle the /movies/{id} path with the OneMovie handler
 
-	mux.Get("/genres", app.AllGenres) // Handle the /genres path with the AllGenres handler
+	mux.Get("/genres", app.AllGenres)                    // Handle the /genres path with the AllGenres handler
+	mux.Get("/movies/genres/{id}", app.AllMoviesByGenre) // Handle the /genres/{id} path with the OneGenre handler
 
 	mux.Route("/admin", func(mux chi.Router) {
 		mux.Use(app.authRequired) // Require authentication for all routes under /admin

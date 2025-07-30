@@ -116,3 +116,5 @@
   - Deleting a movie IV
 ## Displaying movies by Genre
   - Getting started with listing movies by Genre
+  - Creating a handler to list movies by Genre
+  

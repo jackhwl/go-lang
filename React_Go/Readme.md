@@ -117,4 +117,4 @@
 ## Displaying movies by Genre
   - Getting started with listing movies by Genre
   - Creating a handler to list movies by Genre
-  
+  - Modifying the front end to list movies by Genre

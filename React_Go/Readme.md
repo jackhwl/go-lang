@@ -119,3 +119,5 @@
   - Creating a handler to list movies by Genre
   - Modifying the front end to list movies by Genre
   - Creating the OneGenre component
+## GraphQL
+  - Getting started with GraphQL

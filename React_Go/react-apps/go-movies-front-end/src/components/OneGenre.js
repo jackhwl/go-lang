@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { Link, useParams, useLocation } from 'react-router-dom';
 const OneGenre = () => {
     // we need to get the "prop" passed to this component
     const location = useLocation();
@@ -37,7 +39,7 @@ const OneGenre = () => {
         <>
             <h2>Movies in Genre: {genreName}</h2>
             <hr />
-            {moview ? (
+            {movies ? (
             <table className="table">
                 <thead>
                     <tr>
@@ -66,3 +68,5 @@ const OneGenre = () => {
         </>
     );
 }
+
+export default OneGenre;

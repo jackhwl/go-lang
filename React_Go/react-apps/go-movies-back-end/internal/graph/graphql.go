@@ -90,3 +90,31 @@ func New(movies []*models.Movie) *Graph {
 		movieType: movieType,
 	}
 }
+
+func (g *Graph) Query() (*graphql.Result, error) {
+	rootQuery := graphql.ObjectConfig{
+		Name:   "RootQuery",
+		Fields: g.fields,
+	}
+
+	schemaConfig := graphql.SchemaConfig{
+		Query: graphql.NewObject(rootQuery),
+	}
+
+	schema, error := graphql.NewSchema(schemaConfig)
+	if error != nil {
+		return nil, error
+	}
+
+	params := graphql.Params{
+		Schema:        schema,
+		RequestString: g.QueryString,
+	}
+
+	result := graphql.Do(params)
+	if len(result.Errors) > 0 {
+		return nil, result.Errors[0]
+	}
+
+	return result, nil
+}

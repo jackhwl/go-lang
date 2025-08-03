@@ -2,6 +2,7 @@ package graph
 
 import (
 	"backend/internal/models"
+	"strings"
 
 	"github.com/graphql-go/graphql"
 )
@@ -30,13 +31,62 @@ func New(movies []*models.Movie) *Graph {
 		},
 	})
 
-	g := &Graph{
-		Movies: movies,
+	var fields = graphql.Fields{
+		"list": &graphql.Field{
+			Type:        graphql.NewList(movieType),
+			Description: "Get all movies",
+			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+				return movies, nil
+			},
+		},
+		"search": &graphql.Field{
+			Type:        graphql.NewList(movieType),
+			Description: "Search movies by title",
+			Args: graphql.FieldConfigArgument{
+				"titleContains": &graphql.ArgumentConfig{
+					Type: graphql.String,
+				},
+			},
+			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+				var theList []*models.Movie
+				search, ok := p.Args["titleContains"].(string)
+				if ok && search != "" {
+					for _, currentMovie := range movies {
+						if strings.Contains(strings.ToLower(currentMovie.Title), strings.ToLower(search)) {
+							theList = append(theList, currentMovie)
+						}
+					}
+				}
+				return theList, nil
+			},
+		},
+
+		"get": &graphql.Field{
+			Type:        movieType,
+			Description: "Get a movie by ID",
+			Args: graphql.FieldConfigArgument{
+				"id": &graphql.ArgumentConfig{
+					Type: graphql.NewNonNull(graphql.Int),
+				},
+			},
+			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+				id, ok := p.Args["id"].(int)
+				if !ok {
+					return nil, nil
+				}
+				for _, movie := range movies {
+					if movie.ID == id {
+						return movie, nil
+					}
+				}
+				return nil, nil // Return nil if not found
+			},
+		},
 	}
 
-	g.movieType = g.createMovieType()
-	g.fields = g.createFields()
-	g.Config = g.createSchemaConfig()
-
-	return g
+	return &Graph{
+		Movies:    movies,
+		fields:    fields,
+		movieType: movieType,
+	}
 }

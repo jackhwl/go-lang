@@ -25,7 +25,7 @@ func (app *application) routes() http.Handler {
 	mux.Get("/genres", app.AllGenres)                    // Handle the /genres path with the AllGenres handler
 	mux.Get("/movies/genres/{id}", app.AllMoviesByGenre) // Handle the /genres/{id} path with the OneGenre handler
 
-	mux.Get("/graph", app.moviesGraphQL) // Handle the /graphql path with the GraphQL handler
+	mux.Post("/graph", app.moviesGraphQL) // Handle the /graphql path with the GraphQL handler
 
 	mux.Route("/admin", func(mux chi.Router) {
 		mux.Use(app.authRequired) // Require authentication for all routes under /admin

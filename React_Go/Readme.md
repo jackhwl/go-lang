@@ -124,3 +124,4 @@
   - GraphQL II
   - GraphQL III
   - Creating a handler for GraphQL
+  - Connecting to our GraphQL endpoint from the front end

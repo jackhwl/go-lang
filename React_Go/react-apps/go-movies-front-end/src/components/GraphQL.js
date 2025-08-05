@@ -10,10 +10,48 @@ const GraphQL = () => {
 
     // perform a search
     const performSearch = async (e) => {
-        e.preventDefault(); 
-    }
+        const payload = `
+        {
+            search(titleContains: "${searchTerm}") {
+                id
+                title
+                runtime     
+                release_date
+                mpaa_rating
+            }
+        }`;
+
+        const headers = new Headers();
+        headers.append("Content-Type", "application/graphql");
+
+        const requestOptions = {
+            method: "POST",
+            headers: headers,
+            body: payload
+        };
+
+        fetch(`/graph`, requestOptions)
+            .then((response) => response.json())
+            .then((response) => {
+                let theList = Object.values(response.data.search);
+                setMovies(theList);
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+            });
+    };  
 
     const handleChange = (e) => {
+        e.preventDefault();
+
+        let value = e.target.value;
+        setSearchTerm(value);
+
+        if (value.length > 2) { 
+            performSearch();
+        } else {
+            setMovies(fullList);
+        }
     }
     //useEffect
     useEffect(() => {

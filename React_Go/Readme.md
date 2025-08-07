@@ -126,3 +126,5 @@
   - Creating a handler for GraphQL
   - Connecting to our GraphQL endpoint from the front end
   - Adding search functionality
+## Deploying our application
+  - Configuring environment variables with .env

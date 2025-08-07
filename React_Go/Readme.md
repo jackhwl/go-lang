@@ -128,3 +128,6 @@
   - Adding search functionality
 ## Deploying our application
   - Configuring environment variables with .env
+    - npm run build
+  - Preparing the back end for deployment
+    - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o gomovies ./cmd/api

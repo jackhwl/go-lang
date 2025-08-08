@@ -131,3 +131,5 @@
     - npm run build
   - Preparing the back end for deployment
     - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o gomovies ./cmd/api
+  - Dumping our database for the live server
+    - pg_dump --no-owner -h localhost -p 5432 -U postgres movies > movies.sql

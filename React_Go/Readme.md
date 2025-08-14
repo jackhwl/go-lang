@@ -139,3 +139,4 @@
     - DigitalOcean: postgresql
   - Populating the database on the live server
   - Starting our back end with Supervisor
+  - Configuring Caddy

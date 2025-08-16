@@ -25,7 +25,7 @@ const Genres = () => {
                 }
             })
             .catch(error => setError(error));
-    });
+    }, []);
 
     if (error !== null) {
         return <div>Error: {error.message}</div>;

@@ -140,3 +140,5 @@
   - Populating the database on the live server
   - Starting our back end with Supervisor
   - Configuring Caddy
+  - Trying out our live application
+  - Fixing the Genres component
